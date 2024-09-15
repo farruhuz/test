@@ -2,8 +2,6 @@ import { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { IClassName } from '../../types/common.types';
 
-// =================================================================
-
 interface PageTitleProps extends IClassName {
   title: string;
 }

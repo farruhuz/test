@@ -64,8 +64,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
   );
 });
 
-// =================================================================
-
-if (process.env.NODE_ENV !== 'production') {
-  Button.displayName = 'Button';
-}

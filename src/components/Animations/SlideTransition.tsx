@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
-
-import { BaseTransition, BaseTransitionProps } from '@/components/Animations/BaseTransition';
 import styles from '@/components/Animations/SlideTransition.module.css';
+import { BaseTransition, BaseTransitionProps } from '.';
 
 export const SlideTranstion = forwardRef<
   HTMLDivElement,
@@ -26,8 +25,3 @@ export const SlideTranstion = forwardRef<
   );
 });
 
-// ----------------------------------------------------------------
-
-if (process.env.NODE_ENV !== 'production') {
-  SlideTranstion.displayName = 'SlideTranstion';
-}

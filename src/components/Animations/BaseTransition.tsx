@@ -1,10 +1,10 @@
-import { Fragment, ReactNode, forwardRef } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 // ----------------------------------------------------------------
 
 const defaultRenderElement = (children: ReactNode) => {
-  return <Fragment>{children}</Fragment>;
+  return <>{children}</>;
 };
 
 // ----------------------------------------------------------------
@@ -56,8 +56,3 @@ export const BaseTransition = forwardRef<HTMLDivElement, BaseTransitionProps>((p
   );
 });
 
-// ----------------------------------------------------------------
-
-if (process.env.NODE_ENV !== 'production') {
-  BaseTransition.displayName = 'BaseTransition';
-}

@@ -1,7 +1,5 @@
 import { ReactNode, memo } from 'react';
-
 import { twMerge } from 'tailwind-merge';
-
 import { ReactComponent as DocumentSVG } from '@/assets/icons/document.svg';
 
 // =================================================================
@@ -44,7 +42,7 @@ const TableInfo = memo((props: TableInfoProps) => {
       className={twMerge(
         'relative grid grid-cols-[40px_auto] gap-2 pb-6',
         !isLast &&
-          "before:absolute before:left-5 before:top-0 before:-z-10 before:h-full before:w-0.5 before:bg-gray before:content-['']",
+        "before:absolute before:left-5 before:top-0 before:-z-10 before:h-full before:w-0.5 before:bg-gray before:content-['']",
       )}
     >
       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
@@ -102,11 +100,3 @@ OrderDetailsCard.Desc = DetailsDesc;
 OrderDetailsCard.Price = OrderPrice;
 OrderDetailsCard.TableInfo = TableInfo;
 
-// =================================================================
-
-if (process.env.NODE_ENV !== 'production') {
-  DetailsTitle.displayName = 'DetailsTitle';
-  DetailsDesc.displayName = 'DetailsDesc';
-  OrderPrice.displayName = 'OrderPrice';
-  TableInfo.displayName = 'TableInfo';
-}

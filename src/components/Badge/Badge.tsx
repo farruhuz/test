@@ -41,8 +41,3 @@ export const Badge = memo((props: BadgeProps) => {
   return <span className={twMerge('badge', className, type && badgeType[type])}>{text}</span>;
 });
 
-// =================================================================
-
-if (process.env.NODE_ENV !== 'production') {
-  Badge.displayName = 'Badge';
-}

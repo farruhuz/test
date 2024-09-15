@@ -1,13 +1,11 @@
 import { memo } from 'react';
 import { NavLink as RouterNavLink, NavLinkProps } from 'react-router-dom';
-
 import { twMerge } from 'tailwind-merge';
-
-import { IClassName } from '@/types/common.types';
+import { IClassName } from '../../types/common.types';
 
 // =================================================================
 
-interface Props extends Omit<NavLinkProps, 'className'>, IClassName {}
+interface Props extends Omit<NavLinkProps, 'className'>, IClassName { }
 
 // =================================================================
 
@@ -27,9 +25,3 @@ export const NavLink = memo((props: Props) => {
     />
   );
 });
-
-// =================================================================
-
-if (process.env.NODE_ENV !== 'production') {
-  NavLink.displayName = 'NavLink';
-}

@@ -58,8 +58,3 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, re
   );
 });
 
-// ----------------------------------------------------------------
-
-if (process.env.NODE_ENV !== 'production') {
-  TextInput.displayName = 'TextInput';
-}

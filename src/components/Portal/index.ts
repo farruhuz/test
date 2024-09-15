@@ -1,1 +1,1 @@
-export * from '@/components/Portal/Portal';
+export * from './Portal';

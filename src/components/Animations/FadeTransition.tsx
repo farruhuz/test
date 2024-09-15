@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
-import { BaseTransition, BaseTransitionProps } from '@/components/Animations/BaseTransition';
-import styles from '@/components/Animations/FadeTransition.module.css';
+import styles from './FadeTransition.module.css';
+import { BaseTransition, BaseTransitionProps } from './BaseTransition';
 
 export const FadeTransition = forwardRef<HTMLDivElement, Omit<BaseTransitionProps, 'classNames'>>(
   (props, ref) => {
@@ -23,8 +23,3 @@ export const FadeTransition = forwardRef<HTMLDivElement, Omit<BaseTransitionProp
   },
 );
 
-// ----------------------------------------------------------------
-
-if (process.env.NODE_ENV !== 'production') {
-  FadeTransition.displayName = 'FadeTransition';
-}

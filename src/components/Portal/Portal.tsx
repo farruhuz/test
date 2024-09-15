@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useEffectOnce } from 'react-use';
-
-import { IPropsChildren } from '@/types/common.types';
+import { IPropsChildren } from '../../types/common.types';
 
 // ----------------------------------------------------------------
 

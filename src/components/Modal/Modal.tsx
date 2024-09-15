@@ -2,12 +2,10 @@ import FocusTrap from 'focus-trap-react';
 import React, { useRef, useCallback } from 'react';
 
 import { twMerge } from 'tailwind-merge';
-
-import { Focusable } from '@/components/Focusable';
-import { ModalTitle } from '@/components/Modal/ModalTitle';
-import { Overlay, OverlayProps } from '@/components/Overlay';
-
-import { ReactComponent as CloseSVG } from '@/assets/icons/close.svg';
+import CloseSVG from '../../assets/icons/close.svg';
+import { Overlay, OverlayProps } from '../Overlay/Overlay';
+import { Focusable } from '../Focusable';
+import { ModalTitle } from './ModalTitle';
 
 // ----------------------------------------------------------------
 
@@ -84,6 +82,4 @@ export const Modal = (props: ModalProps) => {
 };
 
 // =================================================================
-
 Modal.Title = ModalTitle;
-// 

@@ -1,1 +1,1 @@
-export * from '@/components/Badge/Badge';
+export * from './Badge';

@@ -1,1 +1,1 @@
-export * from '@/components/Inputs/TextInput/TextInput';
+export * from './TextInput';

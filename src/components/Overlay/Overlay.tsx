@@ -2,11 +2,9 @@ import { ReactNode, useRef } from 'react';
 import { useEffectOnce } from 'react-use';
 
 import { twMerge } from 'tailwind-merge';
-
-import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
-
-import { FadeTransition } from '@/components/Animations';
-import { Portal } from '@/components/Portal';
+import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
+import { FadeTransition } from '../Animations';
+import { Portal } from '../Portal/Portal';
 
 // ----------------------------------------------------------------
 

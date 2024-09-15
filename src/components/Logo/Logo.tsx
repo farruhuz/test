@@ -1,7 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-
-
-// import LogoSVG from '../../assets/icons/logo.svg';
+import LogoSVG from '../../assets/icons/logo.svg';
 import { IClassName } from '../../types/common.types';
 
 // =================================================================
@@ -18,7 +16,7 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <div className={twMerge('inline-block', className)}>
-      {/* <LogoSVG /> */}
+      <img src={LogoSVG} alt="" />
     </div>
   );
 };

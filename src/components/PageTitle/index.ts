@@ -1,1 +1,1 @@
-export * from '@/components/PageTitle/PageTitle';
+export * from './PageTitle';

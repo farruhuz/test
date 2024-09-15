@@ -1,1 +1,1 @@
-export * from '@/components/OrderDetailsCard/OrderDetailsCard';
+export * from './OrderDetailsCard';

@@ -1,12 +1,8 @@
 import { forwardRef } from 'react';
 import ReactSelect, { Props } from 'react-select';
 import makeAnimated from 'react-select/animated';
-
 import { twMerge } from 'tailwind-merge';
-
 const animatedComponents = makeAnimated();
-
-// ----------------------------------------------------------------
 
 interface SelectProps extends Omit<Props, 'components'> {
   label?: string;
@@ -14,7 +10,6 @@ interface SelectProps extends Omit<Props, 'components'> {
   labelClassName?: string;
 }
 
-// ----------------------------------------------------------------
 
 export const Select = forwardRef<any, SelectProps>((props, ref) => {
   const {
@@ -49,8 +44,3 @@ export const Select = forwardRef<any, SelectProps>((props, ref) => {
   );
 });
 
-// ----------------------------------------------------------------
-
-if (process.env.NODE_ENV !== 'production') {
-  Select.displayName = 'Select';
-}

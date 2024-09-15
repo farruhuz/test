@@ -1,1 +1,1 @@
-export * from '@/components/NavLink/NavLink';
+export * from './NavLink';
