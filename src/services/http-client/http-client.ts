@@ -1,0 +1,13 @@
+import axios from 'axios';
+import { applyExtractorResponseInterceptor } from './interceptors/extract-response.interceptors';
+
+export const httpClient = axios.create({
+  baseURL: 'https://dummyjson.com',
+  timeout: 30 * 1000,
+  withCredentials: false,
+  headers: {
+    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mzg5MTc5NTAsImlhdCI6MTcwNzM4MTk1MCwiaXNzIjoicmVzdHUiLCJzdWIiOiIxMzE5IiwidXNlcl9pZCI6MTMxOSwicmVzdGF1cmFudF9pZCI6bnVsbCwiYnJhbmNoX2lkIjo2MTksInJvbGVzIjoiQ0FTSElFUiJ9.jeryJknyCZUPqDadHPL8UPvM8NHnr4E0MfkaVOCb2vqMmMCxRd1XPqd7i_UniDFbmb87fgWY4JI1_SwX82IxBNK9Sygm9NBWVujSBH0tvE8wUEUSvRCqEo7wZ5IGeiP0lOKaLGFad2WFTB3LJEYNQUWKxEbwifZ6Q0BXBQbJaJp9EWE9rVSZyA6Nk6SbNU3I-3xJtYrwnbHhfE58MVA90dffEF5TIAl6Ql1ySTNn2wvHI6mxov5K0HBHCinALyuI7aGW2EQvEAJYjPZSku0LIv4zsE2hRP46ebRL_KrezKCEqGpuqgpl_5S4RswzCo2xp1WEDbtztrpKieGh10d-2A'
+  }
+});
+
+applyExtractorResponseInterceptor(httpClient);
