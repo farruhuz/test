@@ -6,7 +6,6 @@ import { ProductsPageLinks } from '../../contexts/RouterContext/router.links';
 import { AuthApi } from '../../api/domains/auth.api';
 import { ErrorResponse } from '../../api/types/common.types';
 import { Logo } from '../../components/Logo/Logo';
-import { Alert } from '../../components/Alert/Alert';
 import { TextInput } from '../../components/Inputs/TextInput/TextInput';
 import { Button } from '../../components/Button/Button';
 
@@ -63,7 +62,6 @@ export const LoginPage = () => {
           <Logo />
         </div>
         <h3 className="mb-6 text-center text-2xl font-medium">Enter your profile</h3>
-        {errMsg && <Alert message={errMsg} type="error" />}
         <Controller
           name="username"
           control={control}
@@ -81,12 +79,6 @@ export const LoginPage = () => {
             );
           }}
         />
-        {errors.username &&
-          <Alert
-            message={errors?.username?.message || ""}
-            type="warning"
-            className='text-sm text-red-400 bg-white border-none p-0'
-          />}
         <Controller
           name="password"
           control={control}
