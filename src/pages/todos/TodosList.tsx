@@ -1,110 +1,75 @@
 import { useEffect, useState } from "react";
 import { AddTodo } from "./AddTodo";
 import { Todo } from "./Todo";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { TodosApi } from "../../api/domains/todos.api";
 
 export const TodosList = () => {
-  const [users, setUsers] = useState<any[]>([]);
+  const [todos, setUsers] = useState<any[]>([]);
+  const queryClient = useQueryClient();
+
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["todos"],
+    queryFn: TodosApi.getAllTodos,
+  });
+
+  const deleteTodoMutation = useMutation({
+    mutationFn: TodosApi.deleteTodo,
+    onSuccess: (data) => {
+      setUsers((prevUsers) => {
+        return prevUsers.filter((el: any) => el.id !== data.id);
+      });
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+    }
+  });
+  const onDelete = (id: string) => deleteTodoMutation.mutate(id)
+
+  const editTodoMutation = useMutation({
+    mutationFn: TodosApi.updateTodo,
+    onSuccess: (data) => {
+      setUsers((prevTodos) => {
+        return prevTodos.map((el: any) => {
+          if (el.id === data.id) {
+            el.todo = data.todo
+          }
+          return el
+        });
+      });
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+    }
+  });
+  const onEdit = (params: any) => editTodoMutation.mutate(params)
+
+  const addTodoMutation = useMutation({
+    mutationFn: TodosApi.createTodo,
+    onSuccess: (data) => {
+      setUsers((prevTodos) => [data, ...prevTodos]);
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+    }
+  });
+  const onAdd = (params: any) => addTodoMutation.mutate(params)
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (data && data.todos) {
+      setUsers(data.todos.map((el: any) => ({ ...el, isDeleted: false })));
+    }
+  }, [data]);
 
-  const fetchData = async () => {
-    await fetch(`https://dummyjson.com/todos`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data.todos)
-      })
-      .catch((error) => console.log(error));
-  };
+  if (isLoading) return <div>loading...</div>;
+  if (isError) return <div>Error: {error.message}</div>;
 
-  const onAdd = async (name: string) => {
-    await fetch(`https://dummyjson.com/todos/add`, {
-      method: "POST",
-      body: JSON.stringify({
-        todo: name,
-        completed: false,
-        userId: Math.trunc(Math.random() * 500 + 1)
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-      .then((response) => {
-        if (response.status !== 201) {
-          return;
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        setUsers((users) => [data, ...users,]);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  const onEdit = async (id: any, name: string, email: string,) => {
-    await fetch(`https://dummyjson.com/todos/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        name: name,
-        email: email,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          return;
-        } else {
-          return response.json();
-        }
-      })
-      .then((_) => {
-        const updatedUsers = users.map((user: any) => {
-          if (user.id === id) {
-            user.todo = name;
-            user.email = email;
-          }
-          return user;
-        });
-        setUsers((_) => updatedUsers);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  const onDelete = async (id: any) => {
-    await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-      method: "DELETE"
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          return;
-        } else {
-          setUsers(
-            users.filter((user: any) => {
-              return user.id !== id;
-            })
-          );
-        }
-      })
-      .catch((error) => console.log(error));
-  };
 
   return (
     <div className="App p-4">
       <AddTodo onAdd={onAdd} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {users.map((user) => (
+      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {todos.map((todo) => (
           <Todo
-            id={user.id}
-            key={user.id}
-            name={user.todo}
-            email={user.id}
-            userId={user.userId}
+            key={todo.id}
+            id={todo.id}
+            todo={todo.todo}
+            completed={todo.completed}
+            userId={todo.userId}
             onEdit={onEdit}
             onDelete={onDelete}
           />

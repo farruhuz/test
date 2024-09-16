@@ -19,16 +19,6 @@ import TableSVG from '../assets/icons/table.svg';
 
 const menuConfig = [
   {
-    title: 'Products',
-    icon: CashSVG,
-    href: ProductsPageLinks.main,
-  },
-  {
-    title: 'Users',
-    icon: TableSVG,
-    href: UsersPageLinks.main,
-  },
-  {
     title: 'Posts',
     icon: ClocheSVG,
     href: PostsPageLinks.main,
@@ -38,6 +28,16 @@ const menuConfig = [
     icon: CoinsSVG,
     href: TodosPageLinks.main,
   },
+  {
+    title: 'Products',
+    icon: CashSVG,
+    href: ProductsPageLinks.main,
+  },
+  {
+    title: 'Users',
+    icon: TableSVG,
+    href: UsersPageLinks.main,
+  }
 ];
 
 // =================================================================
@@ -51,7 +51,12 @@ export const Sidebar = memo(() => {
       <ul>
         {menuConfig.map(menu => (
           <li key={menu.href}>
-            <NavLink to={menu.href} className="flex items-center gap-2 px-6 py-4 text-black-100">
+            <NavLink
+              to={menu.href}
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-6 py-4 ${isActive ? 'bg-red-500 text-white' : 'text-black-100'
+                }`
+              }>
               <img src={`${menu.icon}`} alt="menu.icon" />{ }
               <span className="text-lg">{menu.title}</span>
             </NavLink>
