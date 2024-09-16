@@ -1,1 +1,1 @@
-export * from '@/contexts/QueryContext/QueryContext';
+export * from './QueryContext';

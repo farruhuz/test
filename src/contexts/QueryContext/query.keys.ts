@@ -20,22 +20,6 @@ export const UsersQueryKeys = {
   userDetails: (id: number | string) => [UsersQueryKeys.PREFIX, 'details', id.toString()],
 } as const;
 
-// =================================================================
-
-export const OrderQueryKeys = {
-  PREFIX: 'order',
-  orderList: (page: number, limit: number) => [OrderQueryKeys.PREFIX, 'list', limit, page],
-  orderDetails: (id: number | string) => [OrderQueryKeys.PREFIX, 'details', id.toString()],
-} as const;
-
-// =================================================================
-
-export const MenuQueryKeys = {
-  PREFIX: 'menu',
-  menuCategory: () => [MenuQueryKeys.PREFIX, 'menu-category'],
-  menuList: (id: string | number) => [MenuQueryKeys.PREFIX, 'menu-list', id.toString()],
-} as const;
-
 
 // =================================================================
 

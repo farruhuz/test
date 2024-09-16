@@ -3,7 +3,7 @@ import { httpClient } from "../../services/http-client/http-client";
 
 export const ProductsApi = {
 
-  getAllProducts: async (limit?: number) => {
+  getAllProducts: async () => {
     const { data } = await httpClient.get(`/products`);
     return data;
   },

@@ -1,1 +1,1 @@
-export * from '@/contexts/StoreContext/StoreContext';
+export * from './StoreContext';

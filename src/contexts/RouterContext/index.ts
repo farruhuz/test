@@ -1,1 +1,1 @@
-export * from '@/contexts/RouterContext/RouterContext';
+export * from './RouterContext';
