@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Button } from "../../components/Button";
 
 interface PostFormProps {
   onSubmit: (post: { title: string; body: string }) => void;
@@ -46,9 +47,9 @@ export const PostForm = ({ onSubmit, initialValue }: PostFormProps) => {
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-4">
       {renderField("Title")}
       {renderField("Body")}
-      <button type="submit" className="btn btn-primary w-full mt-4">
+      <Button type="submit" className="btn btn-primary text-white w-full mt-4">
         Submit
-      </button>
+      </Button>
     </form>
   );
 };

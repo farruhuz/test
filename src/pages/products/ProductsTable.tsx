@@ -14,19 +14,23 @@ export const ProductsTable = () => {
       }));
     }
   };
+  console.log(products);
 
   return (
     <>
       {products.length > 0 && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 p-5 lg:p-7">
           {products.slice((pageIndex - 1) * pageSize, pageIndex * pageSize).map(({ id, thumbnail, title, brand }: any) => (
-            <div key={id} className="card bg-base-100 shadow-xl transition-shadow duration-300 cursor-pointer">
+            <div
+              key={id}
+              className="card bg-base-100 shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => navigate(`/products/${id}`)}
+            >
               <figure>
                 <img
                   className="h-52 w-52 lg:h-72 lg:w-72 rounded-lg object-cover"
                   src={thumbnail}
                   alt={title}
-                  onClick={() => navigate(`/products/${id}`)}
                 />
               </figure>
               <div className="card-body items-center text-center">
@@ -64,5 +68,6 @@ export const ProductsTable = () => {
         </div>
       )}
     </>
+
   );
 };

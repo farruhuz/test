@@ -11,7 +11,7 @@ export const Layout = (props: IPropsChildren) => {
       <Sidebar />
       <section className="overflow-auto pt-24">
         <Header />
-        <div className="px-6 pb-8 pt-4">
+        <div className="px-6 pb-8 pt-4 h-full">
           <Suspense fallback={<h3>Loading...</h3>}>{children}</Suspense>
         </div>
       </section>

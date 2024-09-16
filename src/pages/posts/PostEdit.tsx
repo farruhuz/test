@@ -22,6 +22,7 @@ export const PostEdit = () => {
 
   if (isLoading) return <div className="text-center">loading...</div>;
   if (isError) return <div className="text-center text-red-500">Error: {error.message}</div>;
+  console.log(post);
 
   const handleSubmit = (updatedPost: any) => {
     updatePostMutation.mutate({ id, ...updatedPost })

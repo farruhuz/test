@@ -15,14 +15,7 @@ export const ProductItem = () => {
   if (isError) return <div className="text-center text-red-500">Error: {error.message}</div>;
 
   return (
-    <div className="flex flex-col items-center p-4">
-      {/* Back Button */}
-      <Button
-        className="btn mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        onClick={() => navigate(-1)}
-      >
-        Back to List Posts
-      </Button>
+    <div className="flex justify-between p-4">
 
       {/* Product Card */}
       <div className="w-full md:w-1/2 bg-white shadow-xl rounded-lg overflow-hidden">
@@ -31,7 +24,7 @@ export const ProductItem = () => {
           <img
             src={product.images[0]}
             alt={product.title}
-            className="w-[50%] object-cover"
+            className="w-1/2 h-1/2object-cover"
           />
         </div>
 
@@ -70,45 +63,43 @@ export const ProductItem = () => {
             </div>
           </div>
 
-          {/* Stock Status */}
-          <div className="mb-4">
-            <p className="text-sm">
-              <strong>Stock Status:</strong> {product.availabilityStatus}
-            </p>
-            <p className="text-sm">
-              <strong>Stock:</strong> {product.stock}
-            </p>
-          </div>
+          <div className="flex justify-between">
+            {/* Stock Status */}
+            <div className="mb-4">
+              <p className="text-sm">
+                <strong>Stock Status:</strong> {product.availabilityStatus}
+              </p>
+              <p className="text-sm">
+                <strong>Stock:</strong> {product.stock}
+              </p>
+            </div>
 
-          {/* Shipping and Warranty */}
-          <div className="mb-4">
-            <h3 className="font-semibold">Shipping & Warranty:</h3>
-            <p className="text-sm">{product.shippingInformation}</p>
-            <p className="text-sm">{product.warrantyInformation}</p>
-          </div>
+            {/* Shipping and Warranty */}
+            <div className="mb-4">
+              <h3 className="font-semibold">Shipping & Warranty:</h3>
+              <p className="text-sm">{product.shippingInformation}</p>
+              <p className="text-sm">{product.warrantyInformation}</p>
+            </div>
 
-          {/* Reviews */}
-          <div className="mb-4">
-            <h3 className="font-semibold">Reviews:</h3>
-            {product.reviews.map((review: any, index: number) => (
-              <div key={index} className="border-b border-gray-300 py-2">
-                <p className="text-sm font-semibold">{review.reviewerName}</p>
-                <div className="text-yellow-400 mb-1">
-                  {'★'.repeat(review.rating)}{' '}
-                  {'☆'.repeat(5 - review.rating)}
-                </div>
-                <p className="text-sm italic">"{review.comment}"</p>
-              </div>
-            ))}
-          </div>
 
-          {/* Return Policy */}
-          <div className="mb-4">
-            <h3 className="font-semibold">Return Policy:</h3>
-            <p className="text-sm">{product.returnPolicy}</p>
+
+            {/* Return Policy */}
+            <div className="mb-4">
+              <h3 className="font-semibold">Return Policy:</h3>
+              <p className="text-sm">{product.returnPolicy}</p>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Back Button */}
+      <Button
+        className="btn mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        onClick={() => navigate(-1)}
+      >
+        Back to List Posts
+      </Button>
+
     </div>
   )
 }
