@@ -29,7 +29,7 @@ export const AddUser = ({ onAdd, isOpen, onClose, ...rest }: any) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} results={...rest}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="form-control">
             <label htmlFor="firstName" className="label">
