@@ -14,7 +14,7 @@ export const PostEdit = () => {
 
   const updatePostMutation = useMutation({
     mutationFn: PostsApi.updatePost,
-    onSuccess: (data) => {
+    onSuccess: (_) => {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
       navigate(-1)
     }

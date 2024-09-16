@@ -63,7 +63,7 @@ export const TodosList = () => {
           return response.json();
         }
       })
-      .then((data) => {
+      .then((_) => {
         const updatedUsers = users.map((user: any) => {
           if (user.id === id) {
             user.todo = name;
