@@ -105,9 +105,9 @@ export function Table<TData>(props: TableProps<TData>) {
           <div className="w-full overflow-x-auto">
             <table className="table table-md w-full whitespace-nowrap">
               <thead className="bg-gray">
-                {table.getHeaderGroups().map(headerGroup => (
+                {table.getHeaderGroups().map((headerGroup: any) => (
                   <tr key={headerGroup.id} className="border-gray">
-                    {headerGroup.headers.map(header => {
+                    {headerGroup.headers.map((header: any) => {
                       return (
                         <th
                           key={header.id}
@@ -126,10 +126,10 @@ export function Table<TData>(props: TableProps<TData>) {
                 ))}
               </thead>
               <tbody>
-                {table.getRowModel().rows.map(row => {
+                {table.getRowModel().rows.map((row: any) => {
                   return (
                     <tr key={row.id} className="hover border-gray">
-                      {row.getVisibleCells().map(cell => {
+                      {row.getVisibleCells().map((cell: any) => {
                         return (
                           <td key={cell.id} className="py-4" >
                             {flexRender(cell.column.columnDef.cell, cell.getContext())}

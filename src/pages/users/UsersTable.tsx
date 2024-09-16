@@ -1,7 +1,5 @@
 import { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { useUsersList } from './useUsersList';
-import { PostsPageLinks } from '../../contexts/RouterContext/router.links';
 import { Button } from '../../components/Button/Button';
 import { Table } from '../../components/Table/Table';
 
@@ -9,17 +7,6 @@ import { Table } from '../../components/Table/Table';
 const columns = [
   {
     accessorKey: 'id',
-    cell: (props: any) => {
-      const id = props.getValue() as number;
-      return (
-        <Link
-          to={PostsPageLinks.details(id)}
-          className="border-b border-white transition-all duration-300 hover:border-primary hover:text-primary"
-        >
-          {id}
-        </Link>
-      );
-    },
     header: '№ Number',
   },
   {
@@ -52,11 +39,11 @@ const columns = [
 
       return (
         <Button variant="primary" onClick={() => console.log({ id })} className="text-base">
-          Закрыть заказ
+          Delete User
         </Button>
       );
     },
-    header: 'Действие',
+    header: 'Actions',
   },
 ];
 
@@ -68,8 +55,6 @@ export const UsersTable = memo(() => {
   if (!users && isLoading) {
     return <h2>Loading...</h2>;
   }
-
-  console.log(users);
 
   return (
     <Table

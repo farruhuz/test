@@ -1,6 +1,6 @@
-import { Fragment, memo } from 'react';
+import { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { ReactComponent as UsersSVG } from '../../assets/icons/users.svg';
+import UsersSVG from '../../assets/icons/users.svg';
 
 // =================================================================
 
@@ -51,7 +51,7 @@ export const TableCard = memo((props: TableCardProps) => {
         <div className="flex items-center gap-2 text-left text-lg font-medium">
           {personCount && isActive ? (
             <>
-              <UsersSVG width={24} height={24} />
+              <UsersSVG />
               <span>{personCount} человек</span>
             </>
           ) : (

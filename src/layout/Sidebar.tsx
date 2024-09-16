@@ -10,7 +10,7 @@ import { Logo } from '../components/Logo/Logo';
 import { NavLink } from 'react-router-dom';
 
 import CashSVG from '../assets/icons/cash.svg';
-import ClocheSVG from '../assets/icons/close.svg';
+import ClocheSVG from '../assets/icons/cloche.svg';
 import CoinsSVG from '../assets/icons/coins.svg';
 import TableSVG from '../assets/icons/table.svg';
 
@@ -52,7 +52,7 @@ export const Sidebar = memo(() => {
         {menuConfig.map(menu => (
           <li key={menu.href}>
             <NavLink to={menu.href} className="flex items-center gap-2 px-6 py-4 text-black-100">
-              <img src={`${menu.icon}`} alt="" />{ }
+              <img src={`${menu.icon}`} alt="menu.icon" />{ }
               <span className="text-lg">{menu.title}</span>
             </NavLink>
           </li>

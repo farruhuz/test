@@ -8,13 +8,13 @@ export const UsersApi = {
     return data;
   },
 
-  addUser: async (id: string) => {
-    const { data } = await httpClient.get(`/products/${id}'`);
+  getUser: async (id: string | number | undefined) => {
+    const { data } = await httpClient.get(`/users/${id}'`);
     return data;
   },
 
   deleteUser: async (id: string) => {
-    const { data } = await httpClient.delete(`/products/${id}`);
+    const { data } = await httpClient.delete(`/users/${id}`);
     return data;
   },
 };

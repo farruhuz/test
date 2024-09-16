@@ -5,6 +5,7 @@ import { Button } from '../components/Button/Button';
 export const Header = forwardRef<HTMLHeadElement, React.ComponentProps<'header'>>((props, ref) => {
   const { userCredentials } = useAuthState();
   const { logout } = useAuthMethods();
+  console.log(userCredentials);
 
   return (
     <header
@@ -12,17 +13,15 @@ export const Header = forwardRef<HTMLHeadElement, React.ComponentProps<'header'>
       {...props}
       className="fixed left-0 top-0 z-10 flex h-24 w-full items-center justify-between border-b-2 border-gray bg-white py-6 pl-[384px] pr-6"
     >
-      <div>search</div>
       <div className="flex items-center gap-2">
-        <div>Russian</div>
         <div className="dropdown dropdown-end border-none">
           <Button variant="ghost" className="rounded-full">
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-primary">
-              <img src={userCredentials.photo} alt={userCredentials.name} />
+              <img src={userCredentials.image} alt={userCredentials.firstName} />
             </span>
             <div className="flex flex-col text-left">
-              <p className="text-lg leading-6">{userCredentials.name}</p>
-              <span className="text-black-200 text-sm font-normal">{userCredentials.role}</span>
+              <p className="text-lg leading-6">{userCredentials.username}</p>
+              <span className="text-black-200 text-sm font-normal">{userCredentials.gender}</span>
             </div>
           </Button>
           <ul

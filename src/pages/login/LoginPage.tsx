@@ -62,7 +62,7 @@ export const LoginPage = () => {
         <div className="mb-8 text-center">
           <Logo />
         </div>
-        <h3 className="mb-6 text-center text-2xl font-medium">Вход в личный кабинет</h3>
+        <h3 className="mb-6 text-center text-2xl font-medium">Enter your profile</h3>
         {errMsg && <Alert message={errMsg} type="error" />}
         <Controller
           name="username"

@@ -1,11 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { useProductsList } from './useProductsList';
 
 export const ProductsTable = () => {
   const { products, pagination, setPagination } = useProductsList();
   const { pageIndex, pageSize } = pagination;
-
-  console.log(products);
-
+  const navigate = useNavigate();
 
   const selectPageHandler = (selectedPage: any) => {
     if (selectedPage >= 1 && selectedPage <= Math.ceil(products.length / pageSize) && selectedPage !== pageIndex) {
@@ -27,6 +26,7 @@ export const ProductsTable = () => {
                   className="h-52 w-52 lg:h-72 lg:w-72 rounded-lg object-cover"
                   src={thumbnail}
                   alt={title}
+                  onClick={() => navigate(`/products/${id}`)}
                 />
               </figure>
               <div className="card-body items-center text-center">

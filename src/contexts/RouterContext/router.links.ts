@@ -12,12 +12,15 @@ export const AuthPageLinks = {
 
 export const ProductsPageLinks = {
   main: ProductPaths.ROOT_PATH,
+  details: (id: string | number) => generatePath(ProductPaths.DETAILS, { id: id.toString() }),
 } as const;
+
 
 // =============================================================================
 
 export const UsersPageLinks = {
   main: UserPaths.ROOT_PATH,
+  details: (id: string | number) => generatePath(UserPaths.DETAILS, { id: id.toString() }),
 } as const;
 
 // =============================================================================

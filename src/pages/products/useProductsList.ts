@@ -21,6 +21,6 @@ export const useProductsList = () => {
     staleTime: 0,
   });
 
-  return { products: data?.products || [], isLoading, pagination, setPagination };
+  return { products: data.products || [], isLoading, pagination, setPagination };
 };
 
