@@ -1,3 +1,3 @@
-export * from '@/pages/posts/PostsPage';
-export * from '@/pages/posts/PostItem';
-export * from '@/pages/posts/PostEdit';
+export * from './PostsPage';
+export * from './PostItem';
+export * from './PostEdit';

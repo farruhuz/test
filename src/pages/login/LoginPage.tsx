@@ -21,7 +21,7 @@ type LoginFormValues = {
 export const LoginPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [errMsg, setErrMsg] = useState('');
+  const [_, setErrMsg] = useState('');
 
   const { persistAccessToken, setUserCredentials } = useAuthMethods();
 

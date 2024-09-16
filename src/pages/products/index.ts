@@ -1,1 +1,1 @@
-export * from '@/pages/products/ProductsPage';
+export * from './ProductsPage';

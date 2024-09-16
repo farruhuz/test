@@ -19,7 +19,7 @@ export const TodosList = () => {
       .catch((error) => console.log(error));
   };
 
-  const onAdd = async (name: string, email: string) => {
+  const onAdd = async (name: string) => {
     await fetch(`https://dummyjson.com/todos/add`, {
       method: "POST",
       body: JSON.stringify({
@@ -45,7 +45,7 @@ export const TodosList = () => {
       .catch((error) => console.log(error));
   };
 
-  const onEdit = async (id: any, name: string, email: string, userId: any) => {
+  const onEdit = async (id: any, name: string, email: string,) => {
     await fetch(`https://dummyjson.com/todos/${id}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -72,7 +72,7 @@ export const TodosList = () => {
           }
           return user;
         });
-        setUsers((users) => updatedUsers);
+        setUsers((_) => updatedUsers);
       })
       .catch((error) => console.log(error));
   };
