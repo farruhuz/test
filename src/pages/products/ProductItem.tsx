@@ -13,7 +13,6 @@ export const ProductItem = () => {
 
   if (isLoading) return <div className="text-center">loading...</div>;
   if (isError) return <div className="text-center text-red-500">Error: {error.message}</div>;
-  console.log(product);
 
   return (
     <div className="flex flex-col items-center p-4">

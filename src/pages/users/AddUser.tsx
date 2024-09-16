@@ -26,10 +26,11 @@ export const AddUser = ({ onAdd, isOpen, onClose, ...rest }: any) => {
       onCloseRef.current();
     }
   };
+  console.log(...rest);
 
   return (
     <>
-      <form onSubmit={handleSubmit} results={...rest}>
+      <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="form-control">
             <label htmlFor="firstName" className="label">

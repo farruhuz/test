@@ -57,10 +57,8 @@ export function Table<TData>(props: TableProps<TData>) {
       searchParams.set('page', page.toString());
       return searchParams;
     });
-    console.log(table.getState().pagination.pageIndex);
 
     onPaginationChange((prevPagination: any) => {
-      console.log(prevPagination, state.pagination.skip);
       return {
         ...prevPagination,
         pageIndex: state.pagination.pageIndex,

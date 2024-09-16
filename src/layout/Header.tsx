@@ -5,7 +5,6 @@ import { Button } from '../components/Button/Button';
 export const Header = forwardRef<HTMLHeadElement, React.ComponentProps<'header'>>((props, ref) => {
   const { userCredentials } = useAuthState();
   const { logout } = useAuthMethods();
-  console.log(userCredentials);
 
   return (
     <header
